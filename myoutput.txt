@@ -1,0 +1,15 @@
+NAME:Mark Goldstein
+
+		Database of Bank Accounts
+
+First 	 Last	 Social Security		  Account	 Number	 Balancethis is a test
+
+Transaction Requested: Balance Inquiry
+Account Number: 123456
+Current Balance: $12.00
+
+
+		Database of Bank Accounts
+
+First 	 Last	 Social Security		  Account	 Number	 Balancethis is a test
+
