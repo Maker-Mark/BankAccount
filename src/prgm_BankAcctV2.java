@@ -25,22 +25,22 @@ public class prgm_BankAcctV2 {
 		File testFile = new File("mytestcases.txt");
 
 		// create Scanner object
-		Scanner kybd = new Scanner(System.in);
-		// Scanner kybd = new Scanner(System.in);
+		Scanner kybd = new Scanner(testFile);
+		//Scanner kybd = new Scanner(System.in);
 
 		// open the output file
 		// PrintWriter outFile = new
 		// PrintWriter outFile = new PrintWriter("myoutput.txt");
 		PrintWriter outFile = new PrintWriter(System.out);
 
-		
+
 		/* fill and print initial database */
 		numAccts = readAccts(bankAcc, MAX_NUM);
-//		BankAccount starter = new BankAccount(dbFile);
+		//		BankAccount starter = new BankAccount(dbFile);
 		outFile.println("NAME:Mark Goldstein");
 		printAccts(bankAcc, numAccts, outFile);
 
-		
+
 		/* prompts for a transaction and then */
 		/* call functions to process the requested transaction */
 		do {
@@ -112,7 +112,7 @@ public class prgm_BankAcctV2 {
 		File dbFile = new File("myinput.txt");
 
 		Scanner sc = new Scanner(dbFile);
-		
+
 		//Line for tokenizer
 		String line, first, last, social, type;
 
@@ -120,7 +120,7 @@ public class prgm_BankAcctV2 {
 		double bal;
 
 		while (sc.hasNext() && count < maxAccts) {
-			
+
 			line = sc.nextLine();
 			StringTokenizer lineTok = new StringTokenizer(line);	
 			first = lineTok.nextToken();
@@ -134,8 +134,8 @@ public class prgm_BankAcctV2 {
 			count++;
 		}
 
-			
-		
+
+
 		// closes the input file
 		sc.close();
 
@@ -302,7 +302,7 @@ public class prgm_BankAcctV2 {
 			if (accLength.length() != 6 || Integer.parseInt(accLength) < 100000) {
 				outFile.println("Transaction Requested: Balance");
 				outFile.printf("Error: Account number entered invalid!" + 
-				"\nAccount numbers must be a 6-digit integer "
+						"\nAccount numbers must be a 6-digit integer "
 						+ "\nbetween 100000 and 999999.\n\n");
 
 			} else {
@@ -372,7 +372,7 @@ public class prgm_BankAcctV2 {
 			{
 				outFile.println("Transaction Requested: Deposit");
 				outFile.println("Error: Account number " + 
-				requestedAccount + " does not exist.");
+						requestedAccount + " does not exist.");
 			} else // valid account
 			{
 				System.out.println("Enter amount to deposit: "); 
@@ -391,7 +391,7 @@ public class prgm_BankAcctV2 {
 						outFile.printf("Old Balance: $%.2f", bankAcc[index].getAccBal());
 						outFile.println();
 						outFile.println("Amount to Deposit: $" + amountToDeposit);
-						 // make the deposit
+						// make the deposit
 						bankAcc[index].setAccBal(bankAcc[index].getAccBal() + amountToDeposit);
 						outFile.printf("New Balance: $%.2f", bankAcc[index].getAccBal());
 						outFile.println();
@@ -515,7 +515,7 @@ public class prgm_BankAcctV2 {
 	{
 		int accountNew = 0, index;
 		//BETTER WAY?
-	
+
 		Scanner sc = new Scanner(System.in);
 		String accLength;
 		// Sets up new account as string to ensure validity
@@ -541,9 +541,9 @@ public class prgm_BankAcctV2 {
 				return numAccts;
 			} else {
 				accountNew = Integer.parseInt(accLength);
-				
+
 				index = findAcct(bankAcc, numAccts, accountNew);
-				System.out.println(index);
+				System.out.println(index); // THIS 
 				if (index != -1) // invalid account
 				{
 					outFile.println("Transaction Requested: Create New Account");
@@ -551,9 +551,16 @@ public class prgm_BankAcctV2 {
 					outFile.flush();
 					return numAccts;
 				}
+
+				System.out.println("Enter your first name");
+
+				first = kybd.next();
+				System.out.println("Enter your last name");
+				last = kybd.next();
+
 				outFile.println("Enter Social Sec Number");
 				outFile.flush();
-				
+
 				if(kybd.hasNextInt() ) {
 					temp = kybd.next();
 					if(temp.length()!= 9) {
@@ -565,24 +572,21 @@ public class prgm_BankAcctV2 {
 				}
 			}
 			//herer
-			System.out.print("TEST");
+
 			for(int i = 0; i < numAccts;i++) {
 				if(bankAcc[i].getAccDet().getSocSec().equalsIgnoreCase(temp)) {
-				outFile.println("ERROR: Acccount with social security number: "+ temp + " already exisits");
-				outFile.flush();
-				return numAccts;
+					outFile.println("ERROR: Acccount with social security number: "+ temp + " already exisits");
+					outFile.flush();
+					return numAccts;
 				}
 			}
-			
-			System.out.print("Enter your first and last name");
-			line = sc.nextLine();
-			StringTokenizer lineTok = new StringTokenizer(line);
-			first = lineTok.nextToken();
-			last = lineTok.nextToken();
+
+
 			socSec= temp;//setting socSec to right account
 			bankAcc[numAccts] = new BankAccount();
-			System.out.println();
+
 			System.out.println("Select an account type from following options:");
+			System.out.println();
 			System.out.println("\t****************************");
 			System.out.println("\t    List of Choices         ");
 			System.out.println("\t****************************");
@@ -591,122 +595,124 @@ public class prgm_BankAcctV2 {
 			System.out.println("\t     E -- Equity ");
 			System.out.println("\t     R --  IRA");
 			System.out.println();
-			System.out.print("\tEnter your selection: ");
-				
-				choice = kybd.next().charAt(0);
-				switch (choice) {
-				case 'c':
-				case 'C':
-					bankAcc[numAccts].setAccType("Checkings");
-					break;
-				case 's':
-				case 'S':
-					bankAcc[numAccts].setAccType("Savings");
-					break;
-				case 'e':
-				case 'E':
-					bankAcc[numAccts].setAccType("Equity");
-					break;
-				case 'r':
-				case 'R':
-					bankAcc[numAccts].setAccType("IRA");
-					break;
-				default:
-					outFile.println("Error: " + choice + 
-							" is an invalid selection -  try again");
-					outFile.println();
-					outFile.flush();
-					break;
-				}
-			
-			
+
+
+			choice = kybd.next().charAt(0);
+			switch (choice) {
+			case 'c':
+			case 'C':
+				bankAcc[numAccts].setAccType("Checkings");
+				break;
+			case 's':
+			case 'S':
+				bankAcc[numAccts].setAccType("Savings");
+				break;
+			case 'e':
+			case 'E':
+				bankAcc[numAccts].setAccType("Equity");
+				break;
+			case 'r':
+			case 'R':
+				bankAcc[numAccts].setAccType("IRA");
+				break;
+			default:
+				outFile.println("Error: " + choice + 
+						" is an invalid selection -  try again");
+				outFile.println();
+				outFile.flush();
+				break;
+			}
+
+			System.out.println("Enter your inital opening deposit: ");
+			bankAcc[numAccts].setAccBal(kybd.nextDouble());
 			bankAcc[numAccts].setAccNum(accountNew);
 			bankAcc[numAccts].setAccDet( first,last, socSec );
-								outFile.println("Transaction Requested: Create New Account");
-								outFile.println("New "+ bankAcc[numAccts].getAccType() +
-										" Account with account number \"" + accountNew 
-										+ "\" and social security number \"" + socSec+ "\" created.");
-								numAccts++;
-								outFile.flush();
-		//set social 						
+			outFile.println("Transaction Requested: Create New Account");
+			outFile.println("New "+ bankAcc[numAccts].getAccType() +
+					"Account with account number \"" + accountNew 
+					+ "\" \nwith social security number \"" + socSec+ "\" "
+					+ "\nwas created and has a balance of $" + bankAcc[numAccts].getAccBal()+".");
+			numAccts++;
+			outFile.flush();
+			//set social 						
 		}
-			else { // Message for invalid account number entered
-		accLength = kybd.next();
-		outFile.println("Transaction Requested: New Account");
-		outFile.printf("Error: Account number entered invalid!\nAccount numbers must be a 6-digit integer "
-				+ "\nbetween 100000 and 999999.\n\n");
-		outFile.flush();
-	}
-	outFile.println();
-	outFile.flush();
-	return numAccts;
-}
-
-
-
-/*
- * Method deleteAcct(): Input: Existing account number
- *
- * Process: Ensures account balance is at 0.00 and delete account. This is done
- * by getting the index of the account, cloning the arrays, manipulating them
- * and then putting it back into the original array. Responds with message
- *
- * Output: Reprint array with parallel order.
- */
-
-public static int deleteAcct(BankAccount[] bankAcc, int numAccts, PrintWriter outFile, Scanner kybd) {
-	int delAcct, index;
-	String delTemp, accLength; // Setting up accounts as strings to test validity
-	System.out.println("Enter Account Number for deletion:");
-	if (kybd.hasNextInt()) {
-		accLength = kybd.next();
-		delAcct = Integer.parseInt(accLength);
-		index = findAcct(bankAcc, numAccts, delAcct);
-		delTemp = Integer.toString(delAcct);
-
-		if (index == -1) {
-			outFile.println("Transaction Requested: Delete Account");
-			outFile.println("Error: Account entered does not exist!");
-		} else if (Integer.parseInt(delTemp) <= 100000 || delTemp.length() != 6) {
-			outFile.println("Transaction Requested: Delete Account");
+		else { // Message for invalid account number entered
+			accLength = kybd.next();
+			outFile.println("Transaction Requested: New Account");
 			outFile.printf("Error: Account number entered invalid!\nAccount numbers must be a 6-digit integer "
 					+ "\nbetween 100000 and 999999.\n\n");
-		} else if (bankAcc[index].getAccBal() != 0.00) {
-			outFile.println("Transaction Requested: Delete Account");
-			outFile.printf("Error: Account is not empty. \nRemove funds from account before deleting.");
-		} else {
-
-
-			bankAcc[index].setAccBal(bankAcc[numAccts - 1].getAccBal());
-			bankAcc[index].setAccNum(bankAcc[numAccts - 1].getAccNum());
-			bankAcc[index].setAccDet(bankAcc[numAccts - 1].getAccDet().getNameOnAcc().getFirst(), 
-					bankAcc[numAccts - 1].getAccDet().getNameOnAcc().getLast(),
-					bankAcc[numAccts- 1].getAccDet().getSocSec());
-			bankAcc[index].setAccType(bankAcc[numAccts - 1].getAccType());
-
-			outFile.println("Transaction Requested: Delete Account");
-			outFile.println("Deleted account number: " + delAcct);
-			numAccts--;
+			outFile.flush();
 		}
-	} else {
-		accLength = kybd.next();
-		outFile.println("Transaction Requested: New Account");
-		outFile.printf("Error: Account number entered invalid!\nAccount numbers must be a 6-digit integer "
-				+ "\nbetween 100000 and 999999.\n\n");
+		outFile.println();
+		outFile.flush();
+		return numAccts;
 	}
-	outFile.println();
-	outFile.flush();
-	printAccts(bankAcc, numAccts, outFile);
-	return numAccts;
 
-}
 
-/* Method pause() */
-public static void pause(Scanner keyboard) {
-	String tempstr;
-	System.out.println();
-	System.out.print("press ENTER to continue");
-	tempstr = keyboard.nextLine(); // flush previous ENTER
-	tempstr = keyboard.nextLine(); // wait for ENTER
-}
+
+	/*
+	 * Method deleteAcct(): Input: Existing account number
+	 *
+	 * Process: Ensures account balance is at 0.00 and delete account. This is done
+	 * by getting the index of the account, cloning the arrays, manipulating them
+	 * and then putting it back into the original array. Responds with message
+	 *
+	 * Output: Reprint array with parallel order.
+	 */
+
+	public static int deleteAcct(BankAccount[] bankAcc, int numAccts, PrintWriter outFile, Scanner kybd) {
+		int delAcct, index;
+		String delTemp, accLength; // Setting up accounts as strings to test validity
+		System.out.println("Enter Account Number for deletion:");
+		if (kybd.hasNextInt()) {
+			accLength = kybd.next();
+			delAcct = Integer.parseInt(accLength);
+			index = findAcct(bankAcc, numAccts, delAcct);
+			delTemp = Integer.toString(delAcct);
+
+			if (index == -1) {
+				outFile.println("Transaction Requested: Delete Account");
+				outFile.println("Error: Account entered does not exist!");
+			} else if (Integer.parseInt(delTemp) <= 100000 || delTemp.length() != 6) {
+				outFile.println("Transaction Requested: Delete Account");
+				outFile.printf("Error: Account number entered invalid!\nAccount numbers must be a 6-digit integer "
+						+ "\nbetween 100000 and 999999.\n\n");
+			} else if (bankAcc[index].getAccBal() != 0.00) {
+				outFile.println("Transaction Requested: Delete Account");
+				outFile.printf("Error: Account is not empty. \nRemove funds from account before deleting.");
+			} else {
+
+
+				bankAcc[index].setAccBal(bankAcc[numAccts - 1].getAccBal());
+				bankAcc[index].setAccNum(bankAcc[numAccts - 1].getAccNum());
+				bankAcc[index].setAccDet(bankAcc[numAccts - 1].getAccDet().getNameOnAcc().getFirst(), 
+						bankAcc[numAccts - 1].getAccDet().getNameOnAcc().getLast(),
+						bankAcc[numAccts- 1].getAccDet().getSocSec());
+				bankAcc[index].setAccType(bankAcc[numAccts - 1].getAccType());
+
+				outFile.println("Transaction Requested: Delete Account");
+				outFile.println("Deleted account number: " + delAcct);
+				numAccts--;
+			}
+		} else {
+			accLength = kybd.next();
+			outFile.println("Transaction Requested: New Account");
+			outFile.printf("Error: Account number entered invalid!\nAccount numbers must be a 6-digit integer "
+					+ "\nbetween 100000 and 999999.\n\n");
+		}
+		outFile.println();
+		outFile.flush();
+		printAccts(bankAcc, numAccts, outFile);
+		return numAccts;
+
+	}
+
+	/* Method pause() */
+	public static void pause(Scanner keyboard) {
+		String tempstr;
+		System.out.println();
+		System.out.print("press ENTER to continue");
+		tempstr = keyboard.nextLine(); // flush previous ENTER
+		tempstr = keyboard.nextLine(); // wait for ENTER
+	}
 }

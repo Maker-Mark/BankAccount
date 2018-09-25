@@ -2,14 +2,10 @@ NAME:Mark Goldstein
 
 		Database of Bank Accounts
 
-First 	 Last	 Social Security		  Account	 Number	 Balancethis is a test
+First 	 Last	  Social Security  Account#	 Account Type  Balance
+Jerry    Parker   123456789        123456        Savings       $    12.00
 
-Transaction Requested: Balance Inquiry
-Account Number: 123456
-Current Balance: $12.00
+Jgery    lark     345567833        123457        Savings       $   180.00
 
-
-		Database of Bank Accounts
-
-First 	 Last	 Social Security		  Account	 Number	 Balancethis is a test
+Bobbu    Shmit    345567933        123406        Checkings     $   182.00
 
