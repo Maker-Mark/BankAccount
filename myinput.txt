@@ -1,3 +1,8 @@
-Jerry Parker 123456789 123456 Savings 12
-Jgery lark 345567833 123457 Savings 180
-Bobbu Shmit 345567933 123406 Checkings 182
+Grace Hopper 000000001 100001 Savings 4600
+Steve Woz 000000002 100002 Savings .43
+Joel Spoksky 000000003 100003 Checkings 9001
+Mark Zuckerberg 000000004 100004 Equity 10000
+Yukihiro Matsumoto 000000005 100005 Savings 2300
+Paul Allen 000000006 100006 Savings .43
+Donald Knuth 000000007 100007 Checkings 9001
+John Carmack 000000008 100008 Equity 10000
