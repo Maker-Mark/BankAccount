@@ -1,11 +1,190 @@
 NAME:Mark Goldstein
+DID EXTRA CREDIT ONE & TWO
 
-		Database of Bank Accounts
+						Database of Bank Accounts
 
-First 	 Last	  Social Security  Account#	 Account Type  Balance
-Jerry    Parker   123456789        123456        Savings       $    12.00
+First 	   Last		    Social Security#    Account#	Account Type   Balance 
+/--------------------------------------------------------------------------------\
 
-Jgery    lark     345567833        123457        Savings       $   180.00
+Grace      Hopper          000000001        100001       Savings       $  4600.00
 
-Bobbu    Shmit    345567933        123406        Checkings     $   182.00
+Steve      Woz             000000002        100002       Savings       $     0.00
+
+Joel       Spoksky         000000003        100003       Checkings     $  9001.02
+
+Mark       Zuckerberg      000000004        100004       CD            $  1337.13
+
+Yukihiro   Matsumoto       000000005        100005       CD            $  2300.00
+
+Paul       Allen           000000006        100006       Savings       $     6.43
+
+Donald     Knuth           000000007        100007       Checkings     $  9001.00
+
+John       Carmack         000000008        100008       CD            $ 10000.32
+
+Larry      David           000000009        100009       CD            $     4.45
+
+Barach     Spinoza         000000010        100010       CD            $    16.77
+\--------------------------------------------------------------------------------/
+
+Transaction Requested: Balance Inquiry
+Account Number: 100002
+Current Balance: $0.00
+
+Transaction Requested: Balance Inquiry
+Error: Account number 122221 does not exist.
+
+Transaction Requested: Deposit
+Account Number: 100006
+Old Balance: $6.43
+Amount to Deposit: $1000.43
+New Balance: $1006.86
+
+Transaction Requested: Deposit
+Account Number: 100002
+Error: $-23.34 is an invalid amount
+
+Transaction Requested: Deposit
+Error: Account number 122224 does not exist.
+
+Transaction Requested: Withdrawal
+Account Number: 100003
+Old Balance: $9001.02
+Amount to Withdrawal: $100.0
+New Balance: $8901.02
+
+Transaction Requested: Withdrawal
+Account Number: 100003
+Error: $-12000.00 is an invalid amount
+
+Transaction Requested: Withdrawal
+Account Number: 100003
+Error: Insufficient funds!
+
+Transaction Requested: Withdrawal
+Error: Account number 134243 does not exist
+
+Transaction Requested: Create New Account
+New Savings Account with account number "200001" 
+with social security number "100000001" 
+was created and has a balance of $0.00 
+
+Transaction Requested: Create New Account
+New Checkings Account with account number "200002" 
+with social security number "100000002" 
+was created and has a balance of $0.00 
+
+Transaction Requested: Create New Account
+New CD Account with account number "200003" 
+with social security number "100000003" 
+was created and has a balance of $0.00 
+
+Transaction Requested: New Account
+Error: Account number entered invalid!
+Account numbers must be a 6-digit integer 
+between 100000 and 999999.
+
+Transaction Requested: Create New Account
+Error: Account number 200002 is already in use.
+
+Transaction Requested: Deposit
+Account Number: 200002
+Old Balance: $0.00
+Amount to Deposit: $100.0
+New Balance: $100.00
+
+Transaction Requested: Deposit
+Account Number: 200001
+Old Balance: $0.00
+Amount to Deposit: $1338.0
+New Balance: $1338.00
+
+Transaction Requested: Withdrawal
+Account Number: 200002
+Old Balance: $100.00
+Amount to Withdrawal: $50.0
+New Balance: $50.00
+
+Transaction Requested: Deposit
+Account Number: 200002
+Old Balance: $50.00
+Amount to Deposit: $3200.0
+New Balance: $3250.00
+
+Transaction Requested: Deposit
+Account Number: 200003
+Old Balance: $0.00
+Amount to Deposit: $3115.99
+New Balance: $3115.99
+
+Transaction Requested: Delete Account
+Successfully deleted account number: 100002
+
+Transaction Requested: Delete Account
+Error: Account 100001 is not empty.
+Remove $4600.00 from account before deleting.
+
+Transaction Requested: Withdrawal
+Account Number: 100001
+Old Balance: $4600.00
+Amount to Withdrawal: $4600.0
+New Balance: $0.00
+
+Transaction Requested: Delete Account
+Successfully deleted account number: 100001
+
+Transaction Requested: Delete Account
+Error: Account entered does not exist!
+
+Error: o is an invalid selection -  try again
+
+Error: t is an invalid selection -  try again
+
+
+Transaction Requested: Account Information
+Sucessfully found account linked to SS# "100000001" below:
+
+First 	   Last		    Social Security#    Account#	Account Type   Balance
+/--------------------------------------------------------------------------------\
+Mark       Goldstein       100000001        200001       Savings       $  1338.00 
+\--------------------------------------------------------------------------------/
+
+
+Transaction Requested: Account Information
+Error: No account with Social Security#:"123456789" found.
+
+Transaction Requested: Account Information
+Error: "123csf" is an invalid entry.
+Social Security numbersmust be 9 consecutive integers.
+
+Final Database of Accounts:
+
+
+						Database of Bank Accounts
+
+First 	   Last		    Social Security#    Account#	Account Type   Balance 
+/--------------------------------------------------------------------------------\
+
+Barry      Bonds           100000002        200002       Checkings     $  3250.00
+
+Joe        Ritz            100000003        200003       CD            $  3115.99
+
+Joel       Spoksky         000000003        100003       Checkings     $  8901.02
+
+Mark       Zuckerberg      000000004        100004       CD            $  1337.13
+
+Yukihiro   Matsumoto       000000005        100005       CD            $  2300.00
+
+Paul       Allen           000000006        100006       Savings       $  1006.86
+
+Donald     Knuth           000000007        100007       Checkings     $  9001.00
+
+John       Carmack         000000008        100008       CD            $ 10000.32
+
+Larry      David           000000009        100009       CD            $     4.45
+
+Barach     Spinoza         000000010        100010       CD            $    16.77
+
+Mark       Goldstein       100000001        200001       Savings       $  1338.00
+\--------------------------------------------------------------------------------/
 

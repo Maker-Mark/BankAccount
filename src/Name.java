@@ -1,21 +1,26 @@
-
+/**
+ * DID EXTRA CREDIT #1 and #2
+ * @author Mark Goldstein
+ */
 public class Name {
 
 	private String last;
 	private String first;
-
-	//private AccName name; //
-	/**
-	 * making default values for empty constructor
-	 */
-
-	public Name() {
-
+	
+	// Default constructor
+	public Name() 
+	{
+		
 	}
-	public Name(String firstName, String lastName) {
+	// Constructor when first and last name is sent
+	public Name(String firstName, String lastName) 
+	{
 		last = lastName;
 		first = firstName;	
 	}
+	/* 
+	 * Setters and Getters for first and last name
+	 */
 	public void setFirst (String f)
 	{
 		first = f;
