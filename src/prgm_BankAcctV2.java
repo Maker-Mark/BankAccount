@@ -281,7 +281,8 @@ public class prgm_BankAcctV2 {
 				if(isValid)
 				{//Prints account info associated with valid social#
 					outFile.println("Transaction Requested: Account Information");
-					outFile.print("Sucessfully found account linked to SS# \"" + tempInput+ "\" below:\n\n");
+					outFile.print("Sucessfully found account linked to SS# \"" 
+					+ tempInput+ "\" below:\n\n");
 					outFile.printf("First \t   Last\t\t    Social Security#    Account#"
 							+ "\tAccount Type   Balance\n");
 					outFile.println("/----------------------------------------------"
@@ -320,7 +321,8 @@ public class prgm_BankAcctV2 {
 		{//Error for invalid input. ie letters
 			tempInput = kybd.next();
 			outFile.println("Transaction Requested: Account Information");
-			outFile.print("Error: \""+tempInput + "\" is an invalid entry.\nSocial Security numbers"
+			outFile.print("Error: \""+tempInput + "\" is an invalid entry."
+					+ "\nSocial Security numbers"
 					+ "must be 9 consecutive integers.\n");	
 		}
 		outFile.println();
